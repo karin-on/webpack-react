@@ -10,9 +10,7 @@ webpack config for React & Sass:
 
 - webpack-dev-server
 
-- building
-
-  
+- dev / prod modes
 
 - no fonts loading
 
