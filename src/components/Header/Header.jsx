@@ -4,7 +4,7 @@ import './Header.scss';
 class Header extends React.Component {
     render() {
         return <div className="header">
-            new header
+            brand new header
         </div>
     }
 }

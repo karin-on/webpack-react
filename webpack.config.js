@@ -78,7 +78,7 @@ module.exports = function (env) {
             new MiniCss({
                 filename: 'style.css'
             }),
-            new Clean(['docs']),
+            new Clean(isDev ? [] : ['docs']),
             new Copy([
                 { from: 'images', to: 'images' }
             ])
