@@ -1,13 +1,15 @@
 const path = require('path');
 const Html = require('html-webpack-plugin');
 const MiniCss = require('mini-css-extract-plugin');
+const Clean = require('clean-webpack-plugin');
+const Copy = require('copy-webpack-plugin');
 
 module.exports = function (env) {
     const isDev = env && env.dev ? true : false;
     console.log('isDev?', isDev);
 
     const config = {
-        devtool: 'source-map',      //!!!!!!!!! :D
+        devtool: isDev ? 'eval-source-map' : false,
         entry: './src/app.jsx',
         output: {
             filename: 'out.js',
@@ -23,7 +25,13 @@ module.exports = function (env) {
                     use: {
                         loader: 'babel-loader',
                         options: {
-                          presets: ["@babel/env", "@babel/react"]
+                          presets: [
+                              "@babel/env", 
+                              "@babel/react",
+                              {
+                                  'plugins': ['@babel/plugin-proposal-class-properties']
+                              }
+                          ]
                         }
                     }
                 },
@@ -69,7 +77,11 @@ module.exports = function (env) {
             }),
             new MiniCss({
                 filename: 'style.css'
-            })
+            }),
+            new Clean(['docs']),
+            new Copy([
+                { from: 'images', to: 'images' }
+            ])
         ]
     }
 

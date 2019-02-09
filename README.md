@@ -6,11 +6,13 @@ webpack config for React & Sass:
 
 - CSS autoprefixer
 
-- images loading (no copy plugin)
+- images loading + copy plugin
 
 - webpack-dev-server
 
 - dev / prod modes
+
+- clean dist plugin
 
 - no fonts loading
 
