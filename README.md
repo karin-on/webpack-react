@@ -1,8 +1,4 @@
-webpack config for React & Sass:
-
-- React
-
-- Sass
+Hey there! This is my first very own webpack config handling **React & Sass**. Additional features/loaders/plugins:
 
 - CSS autoprefixer
 
